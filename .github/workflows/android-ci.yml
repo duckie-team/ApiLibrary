@@ -2,7 +2,7 @@ name: Android CI
 env:
   GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false"
 on:
-  commit:
+  push:
     branches: [ master, develop, trunk ]
 
 jobs:
