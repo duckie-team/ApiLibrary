@@ -34,6 +34,8 @@ dependencies {
         libs.androidx.room.core,
         libs.coroutines,
         libs.ktor.client,
+        libs.ktor.content.negotiation,
+        libs.ktor.jackson
     )
     testImplementations(
         libs.test.room,
