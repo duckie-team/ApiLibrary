@@ -1,6 +1,13 @@
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
 @file:Suppress("UnstableApiUsage")
 
-package land.sungbin.androidprojecttemplate.convention
+package land.sungbin.apilibrary.convention
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project

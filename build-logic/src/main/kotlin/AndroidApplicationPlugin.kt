@@ -1,14 +1,21 @@
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
 @file:Suppress(
     "UnstableApiUsage",
 )
 
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import land.sungbin.androidprojecttemplate.convention.ApplicationConstants
-import land.sungbin.androidprojecttemplate.convention.PluginEnum
-import land.sungbin.androidprojecttemplate.convention.applyPlugins
-import land.sungbin.androidprojecttemplate.convention.configureApplication
-import land.sungbin.androidprojecttemplate.convention.implementations
-import land.sungbin.androidprojecttemplate.convention.libs
+import land.sungbin.apilibrary.convention.ApplicationConstants
+import land.sungbin.apilibrary.convention.PluginEnum
+import land.sungbin.apilibrary.convention.applyPlugins
+import land.sungbin.apilibrary.convention.configureApplication
+import land.sungbin.apilibrary.convention.implementations
+import land.sungbin.apilibrary.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -20,8 +27,6 @@ import org.gradle.kotlin.dsl.dependencies
 internal class AndroidApplicationPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         with(project) {
-            val (versionName, versionCode) = "1.0.0" to 1
-
             applyPlugins(
                 PluginEnum.AndroidApplication,
                 PluginEnum.AndroidKotlin,
@@ -35,10 +40,9 @@ internal class AndroidApplicationPlugin : Plugin<Project> {
 
                 defaultConfig {
                     targetSdk = ApplicationConstants.targetSdk
-                    this.versionName = versionName
-                    this.versionCode = versionCode
+                    this.versionName = ApplicationConstants.versionName
+                    this.versionCode = ApplicationConstants.versionCode
                 }
-
             }
 
             dependencies {

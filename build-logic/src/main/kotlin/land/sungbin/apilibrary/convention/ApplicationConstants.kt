@@ -1,4 +1,11 @@
-package land.sungbin.androidprojecttemplate.convention
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
+package land.sungbin.apilibrary.convention
 
 import org.gradle.api.JavaVersion
 
@@ -10,5 +17,7 @@ internal object ApplicationConstants {
     const val targetSdk = 33
     const val compileSdk = 33
     const val jvmTarget = "11"
+    const val versionName = "1.0.0"
+    const val versionCode = 1
     val javaVersion = JavaVersion.VERSION_11
 }

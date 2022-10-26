@@ -1,6 +1,13 @@
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
 @file:Suppress("SameParameterValue")
 
-package land.sungbin.androidprojecttemplate.convention
+package land.sungbin.apilibrary.convention
 
 import org.gradle.api.artifacts.dsl.DependencyHandler as DependencyScope
 import com.android.build.api.dsl.CommonExtension

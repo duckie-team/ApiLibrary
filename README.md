@@ -1,3 +1,3 @@
-# AndroidProjectTemplate
+# [ApiLibrary] Duckie Architecture Sample Project ![coverage](assets/coverage.svg)
 
-Android project template for Me([@jisungbin](https://github.com/jisungbin)).
+This project lists free APIs by [public-api](https://github.com/davemachado/public-api).

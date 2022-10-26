@@ -1,9 +1,16 @@
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
 import com.android.build.gradle.LibraryExtension
-import land.sungbin.androidprojecttemplate.convention.androidTestImplementations
-import land.sungbin.androidprojecttemplate.convention.configureCompose
-import land.sungbin.androidprojecttemplate.convention.debugImplementations
-import land.sungbin.androidprojecttemplate.convention.libs
-import land.sungbin.androidprojecttemplate.convention.setupComposeBom
+import land.sungbin.apilibrary.convention.androidTestImplementations
+import land.sungbin.apilibrary.convention.configureCompose
+import land.sungbin.apilibrary.convention.debugImplementations
+import land.sungbin.apilibrary.convention.libs
+import land.sungbin.apilibrary.convention.setupComposeBom
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

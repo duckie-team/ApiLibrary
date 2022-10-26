@@ -1,12 +1,19 @@
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
 @file:Suppress(
     "UnstableApiUsage",
 )
 
 import com.android.build.gradle.LibraryExtension
-import land.sungbin.androidprojecttemplate.convention.ApplicationConstants
-import land.sungbin.androidprojecttemplate.convention.PluginEnum
-import land.sungbin.androidprojecttemplate.convention.applyPlugins
-import land.sungbin.androidprojecttemplate.convention.configureApplication
+import land.sungbin.apilibrary.convention.ApplicationConstants
+import land.sungbin.apilibrary.convention.PluginEnum
+import land.sungbin.apilibrary.convention.applyPlugins
+import land.sungbin.apilibrary.convention.configureApplication
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

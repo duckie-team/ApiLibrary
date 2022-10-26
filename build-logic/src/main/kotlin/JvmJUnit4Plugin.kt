@@ -1,5 +1,12 @@
-import land.sungbin.androidprojecttemplate.convention.libs
-import land.sungbin.androidprojecttemplate.convention.setupJunit
+/*
+ * Designed and developed by 2022 Ji Sungbin.
+ *
+ * Licensed under the MIT.
+ * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
+ */
+
+import land.sungbin.apilibrary.convention.libs
+import land.sungbin.apilibrary.convention.setupJunit
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies

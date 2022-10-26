@@ -2,7 +2,7 @@ name: Android CI
 env:
   GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4g -Dorg.gradle.daemon=false"
 on:
-  pull_request:
+  commit:
     branches: [ master, develop, trunk ]
 
 jobs:
@@ -46,7 +46,6 @@ jobs:
           path: report/test-coverage/report.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Test Coverage
-          update-comment: true
 
       - name: Generate test coverage badge
         uses: emibcn/badge-action@v1.2.4
