@@ -160,7 +160,7 @@ internal fun DependencyScope.setupComposeUi(
     libs: VersionCatalog,
 ) {
     implementations(
-        libs.findLibrary("compose-material").get(),
+        libs.findLibrary("compose-material3").get(),
         libs.findLibrary("compose-activity").get(),
     )
 }

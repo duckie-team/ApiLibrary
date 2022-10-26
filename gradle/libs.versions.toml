@@ -3,6 +3,7 @@
 gradle-agp = "8.0.0-alpha06"
 kotlin-core = "1.7.20"
 oss-license-plugin = "0.10.5"
+ksp = "1.7.20-1.0.7"
 
 # compose
 compose-bom = "2022.10.00"
@@ -14,11 +15,15 @@ kover = "0.6.1"
 logeukes = "1.0.0"
 ktx-core = "1.9.0"
 oss-license-library = "17.0.0"
+hilt = "2.44"
+coroutines = "1.6.4"
+ktor = "2.1.2"
 
 # androidx
 androidx-appcompat = "1.5.1" # needs for oss license activity
 androidx-splash = "1.0.0"
 androidx-junit = "1.1.3"
+androidx-room = "2.4.3"
 
 # test
 junit = "4.13.2"
@@ -27,6 +32,8 @@ junit-engine = "5.9.1"
 [plugins]
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 oss-license = { id = "com.google.android.gms.oss-licenses-plugin", version.ref = "oss-license-plugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 [libraries]
 build-gradle-agp = { module = "com.android.tools.build:gradle", version.ref = "gradle-agp" }
@@ -35,13 +42,17 @@ build-kover = { module = "org.jetbrains.kotlinx:kover", version.ref = "kover" }
 build-oss-license = { module = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-license-plugin" }
 
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-core" }
+ktor-client = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
-compose-material = { module = "androidx.compose.material:material" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
 
 ktx-core = { module = "androidx.core:core-ktx", version.ref = "ktx-core" }
+
+hilt-core = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 
 util-oss-license = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-license-library" }
 util-logeukes = { module = "land.sungbin:logeukes", version.ref = "logeukes" }
@@ -49,8 +60,12 @@ util-logeukes = { module = "land.sungbin:logeukes", version.ref = "logeukes" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splash" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
+androidx-room-core = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
 
 test-junit-core = { module = "junit:junit", version.ref = "junit" }
 test-junit-engine = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "junit-engine" } # testRuntimeOnly
 test-compose-manifest = { module = "androidx.compose.ui:ui-test-manifest" } # debugImplementation
 test-compose-junit = { module = "androidx.compose.ui:ui-test-junit4" } # androidTestImplementation
+test-room = { module = "androidx.room:room-testing", version.ref = "androidx-room" }
+test-ktor-client = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
