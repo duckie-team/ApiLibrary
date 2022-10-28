@@ -26,6 +26,10 @@ android {
             kotlin.srcDir("build/generated/ksp/release/kotlin")
         }
     }
+
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+    }
 }
 
 dependencies {
@@ -35,7 +39,7 @@ dependencies {
         libs.coroutines,
         libs.ktor.client,
         libs.ktor.content.negotiation,
-        libs.ktor.jackson
+        libs.ktor.jackson,
     )
     testImplementations(
         libs.test.room,
