@@ -31,7 +31,7 @@ object ProvideRepository {
     ): ApiLibraryRepository {
         return ApiLibraryRepositoryImpl(
             calcIsOfflineMode = {
-                isNetworkAvailable(context = context)
+                !isNetworkAvailable(context = context)
             },
             localDatasource = localDatasource,
             remoteDatasource = remoteDatasource,
