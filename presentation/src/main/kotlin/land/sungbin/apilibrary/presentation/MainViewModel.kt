@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import land.sungbin.apilibrary.domain.usecase.ApiLibraryFetchUseCase
 
 @Singleton
-class MainViewModel @Inject constructor(
+internal class MainViewModel @Inject constructor(
     private val fetchAllApi: ApiLibraryFetchUseCase,
 ) {
     private val _state = MutableStateFlow<ApiLibraryState>(ApiLibraryState.Initial)
