@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class ApiLibraryResponse(
     @field:JsonProperty("entries")
-    val entries: List<ApiItem>,
+    val entries: List<ApiItem>? = null,
 
     @field:JsonProperty("count")
-    val count: Int,
+    val count: Int? = null,
 )
