@@ -19,7 +19,6 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.get
 import io.ktor.serialization.jackson.jackson
 import land.sungbin.apilibrary.data.Constants
-import land.sungbin.apilibrary.data.model.ApiLibraryResponse
 import land.sungbin.apilibrary.domain.datasource.ApiLibraryDatasource
 import land.sungbin.apilibrary.domain.model.ApiItem
 
