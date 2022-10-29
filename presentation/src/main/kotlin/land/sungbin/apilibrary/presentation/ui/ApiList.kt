@@ -9,9 +9,6 @@ package land.sungbin.apilibrary.presentation.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -23,6 +20,7 @@ import land.sungbin.apilibrary.presentation.ApiLibraryState
 import land.sungbin.apilibrary.presentation.ui.uistate.ApiLibraryErrorState
 import land.sungbin.apilibrary.presentation.ui.uistate.ApiLibraryLoadedState
 import land.sungbin.apilibrary.presentation.ui.uistate.ApiLibraryLoadingState
+import land.sungbin.apilibrary.presentation.util.systemBarPaddings
 
 @Composable
 internal fun ApiList(
@@ -34,7 +32,6 @@ internal fun ApiList(
     ) {
         16.dp
     }
-    val systemBarPaddings = WindowInsets.systemBars.asPaddingValues()
 
     LazyColumn(
         modifier = modifier,
