@@ -7,11 +7,8 @@
 
 package land.sungbin.apilibrary.presentation.util
 
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
@@ -22,8 +19,6 @@ import androidx.compose.ui.unit.dp
 // LocalConfiguration.current.screenHeightDp 는 system bars 의 높이를 포함하지 않음
 @Stable
 internal fun Modifier.ensureFillMaxHeight() = composed {
-    val systemBarPaddings = WindowInsets.systemBars.asPaddingValues()
-
     height(
         height = LocalConfiguration.current.screenHeightDp.dp
             .plus(other = systemBarPaddings.calculateTopPadding())
