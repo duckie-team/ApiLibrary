@@ -12,9 +12,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Named
-import land.sungbin.apilibrary.data.datasource.RemoteDatasource
 import land.sungbin.apilibrary.data.datasource.local.LocalDatasource
 import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDao
+import land.sungbin.apilibrary.data.datasource.remote.RemoteDatasource
 import land.sungbin.apilibrary.domain.datasource.ApiLibraryDatasource
 
 @Module
