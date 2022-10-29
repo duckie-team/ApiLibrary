@@ -16,6 +16,14 @@ plugins {
 
 koverMerged {
     enable()
+    filters {
+        annotations {
+            excludes.add("*Generated")
+        }
+        classes {
+            excludes.add("*Dao_Impl")
+        }
+    }
     xmlReport {
         reportFile.set(file("$rootDir/report/test-coverage/report.xml"))
     }
