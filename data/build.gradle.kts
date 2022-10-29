@@ -12,6 +12,7 @@
 
 plugins {
     id(ConventionEnum.AndroidLibrary)
+    id(ConventionEnum.AndroidLibraryUiTest)
     id(ConventionEnum.JvmJUnit4)
     alias(libs.plugins.ksp)
     id(libs.plugins.hilt.get().pluginId)
@@ -30,6 +31,15 @@ android {
         }
     }
 
+    packagingOptions {
+        resources.excludes.addAll(
+            listOf(
+                "META-INF/LICENSE.md",
+                "META-INF/LICENSE-notice.md",
+            )
+        )
+    }
+
     ksp {
         arg("room.schemaLocation", "$projectDir/schemas")
     }
@@ -44,6 +54,9 @@ dependencies {
         projects.domain,
     )
     testImplementations(
+        libs.test.ktor.client,
+    )
+    androidTestImplementations(
         libs.test.ktor.client,
     )
     ksp(
