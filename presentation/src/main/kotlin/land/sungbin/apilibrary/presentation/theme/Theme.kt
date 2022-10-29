@@ -90,14 +90,6 @@ internal fun ApiLibraryTheme(
         true -> DarkColors
         else -> LightColors
     }
-    val navigationBarColor = when (useDarkTheme) {
-        true -> Color.White.copy(
-            alpha = 0.3f,
-        )
-        else -> Color.Black.copy(
-            alpha = 0.3f,
-        )
-    }
 
     LaunchedEffect(key1 = Unit) {
         systemUiController.setStatusBarColor(
@@ -105,8 +97,10 @@ internal fun ApiLibraryTheme(
             darkIcons = !useDarkTheme
         )
         systemUiController.setNavigationBarColor(
-            color = navigationBarColor,
-            darkIcons = useDarkTheme
+            color = Color.Black.copy(
+                alpha = 0.3f,
+            ),
+            darkIcons = false,
         )
     }
 
