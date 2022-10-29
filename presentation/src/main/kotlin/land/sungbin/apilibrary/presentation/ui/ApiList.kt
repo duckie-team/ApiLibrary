@@ -8,6 +8,7 @@
 package land.sungbin.apilibrary.presentation.ui
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.systemBars
@@ -37,10 +38,10 @@ internal fun ApiList(
 
     LazyColumn(
         modifier = modifier,
-        /*contentPadding = PaddingValues(
+        contentPadding = PaddingValues(
             top = systemBarPaddings.calculateTopPadding() + spacedBy,
             bottom = systemBarPaddings.calculateBottomPadding() + spacedBy,
-        ),*/
+        ),
         verticalArrangement = Arrangement.spacedBy(
             space = spacedBy,
         ),
