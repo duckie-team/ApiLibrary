@@ -10,8 +10,19 @@ package land.sungbin.apilibrary.presentation
 import land.sungbin.apilibrary.domain.model.ApiItem
 
 sealed class ApiLibraryState {
-    object Initial : ApiLibraryState()
-    object Loading : ApiLibraryState()
-    class Loaded(val apis: List<ApiItem>) : ApiLibraryState()
-    class Error(val exception: Throwable) : ApiLibraryState()
+    object Initial : ApiLibraryState() {
+        override fun toString() = "Initial"
+    }
+
+    object Loading : ApiLibraryState() {
+        override fun toString() = "Loading"
+    }
+
+    class Loaded(val apis: List<ApiItem>) : ApiLibraryState() {
+        override fun toString() = "[Loaded]\n\n\n${apis.joinToString("\n\n")}"
+    }
+
+    class Error(val exception: Throwable) : ApiLibraryState() {
+        override fun toString() = "[Error] $exception"
+    }
 }
