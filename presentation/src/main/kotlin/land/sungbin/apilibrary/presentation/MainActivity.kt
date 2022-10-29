@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "Bye world.")
+                Text(text = "Bye world: ${vm.hashCode()}")
             }
         }
     }
