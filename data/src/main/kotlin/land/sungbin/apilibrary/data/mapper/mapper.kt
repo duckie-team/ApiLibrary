@@ -10,6 +10,8 @@ package land.sungbin.apilibrary.data.mapper
 import land.sungbin.apilibrary.data.model.ApiItem as DataApiItem
 import land.sungbin.apilibrary.domain.model.ApiItem as DomainApiItem
 
+private const val SupportCorsToken = "yes"
+
 internal fun List<DataApiItem>.toDomain() = mapNotNull { item ->
     with(item) {
         if (api == null || link == null) { // require fields
@@ -20,8 +22,10 @@ internal fun List<DataApiItem>.toDomain() = mapNotNull { item ->
                 description = description,
                 category = category,
                 link = link,
-                neededAuth = auth,
-                supportCORS = cors == "yes",
+                neededAuth = auth?.takeIf { auth ->
+                    auth.isNotEmpty()
+                },
+                supportCORS = cors == SupportCorsToken,
             )
         }
     }
@@ -35,7 +39,7 @@ internal fun List<DomainApiItem>.toData() = map { item ->
             https = null,
             auth = neededAuth,
             api = name,
-            cors = null,
+            cors = SupportCorsToken.takeIf { supportCORS },
             link = link,
         )
     }
