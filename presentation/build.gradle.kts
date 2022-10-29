@@ -26,8 +26,9 @@ dependencies {
     implementations(
         libs.kotlin.immutable.collection,
         libs.hilt.core,
-        libs.androidx.browser,
         libs.util.systemui.controller,
+        libs.compose.lottie,
+        libs.androidx.browser,
         libs.androidx.room.core,
         libs.bundles.ktor,
         projects.data,
