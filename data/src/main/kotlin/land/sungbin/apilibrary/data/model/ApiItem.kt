@@ -9,11 +9,13 @@ package land.sungbin.apilibrary.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @Entity
 data class ApiItem(
     @PrimaryKey(autoGenerate = true)
+    @field:JsonIgnoreProperties
     val id: Int = 0,
 
     @field:JsonProperty("Description")
