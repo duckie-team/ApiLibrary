@@ -28,6 +28,7 @@ dependencies {
         libs.androidx.browser,
         libs.util.systemui.controller,
         libs.androidx.room.core,
+        libs.bundles.ktor,
         projects.data,
         projects.domain,
     )

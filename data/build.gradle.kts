@@ -37,15 +37,10 @@ dependencies {
         libs.hilt.core,
         libs.androidx.room.core,
         libs.coroutines,
-        libs.ktor.client,
-        libs.ktor.logging,
-        libs.ktor.content.negotiation,
-        libs.ktor.jackson,
-        libs.ktor.engine,
+        libs.bundles.ktor,
         projects.domain,
     )
     testImplementations(
-        libs.ktor.mock,
         libs.test.room,
         libs.test.ktor.client,
     )
