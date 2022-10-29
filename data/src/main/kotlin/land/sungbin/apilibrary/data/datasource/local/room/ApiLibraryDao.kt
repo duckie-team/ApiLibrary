@@ -7,17 +7,17 @@
 
 package land.sungbin.apilibrary.data.datasource.local.room
 
+import land.sungbin.apilibrary.data.model.ApiItem as DataApiItem
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import land.sungbin.apilibrary.data.model.ApiItem
 
 @Dao
 interface ApiLibraryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(apiItems: List<ApiItem>)
+    suspend fun insertAll(apiItems: List<DataApiItem>)
 
     @Query("SELECT * FROM ApiItem")
-    suspend fun getAll(): List<ApiItem>
+    suspend fun getAll(): List<DataApiItem>
 }

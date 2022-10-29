@@ -7,17 +7,17 @@
 
 package land.sungbin.apilibrary.data.datasource.local
 
+import land.sungbin.apilibrary.domain.model.ApiItem as DomainApiItem
 import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDao
 import land.sungbin.apilibrary.data.mapper.toData
 import land.sungbin.apilibrary.data.mapper.toDomain
 import land.sungbin.apilibrary.domain.datasource.ApiLibraryDatasource
-import land.sungbin.apilibrary.domain.model.ApiItem
 
 class LocalDatasource(
     private val dao: ApiLibraryDao,
 ) : ApiLibraryDatasource {
-    override suspend fun fetchAllApis(): List<ApiItem> = dao.getAll().toDomain()
-    override suspend fun saveAllApis(apis: List<ApiItem>) {
+    override suspend fun fetchAllApis(): List<DomainApiItem> = dao.getAll().toDomain()
+    override suspend fun saveAllApis(apis: List<DomainApiItem>) {
         dao.insertAll(apis.toData())
     }
 }

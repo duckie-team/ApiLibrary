@@ -7,14 +7,14 @@
 
 package land.sungbin.apilibrary.data.datasource.local.room
 
+import land.sungbin.apilibrary.data.model.ApiItem as DataApiItem
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import land.sungbin.apilibrary.data.model.ApiItem
 
 @Database(
-    entities = [ApiItem::class],
+    entities = [DataApiItem::class],
     version = 1,
 )
 abstract class ApiLibraryDatabase : RoomDatabase() {
