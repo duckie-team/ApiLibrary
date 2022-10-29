@@ -7,6 +7,7 @@
 
 package land.sungbin.apilibrary.data.datasource
 
+import land.sungbin.apilibrary.domain.model.ApiItem as DomainApiItem
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
@@ -19,8 +20,9 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.get
 import io.ktor.serialization.jackson.jackson
 import land.sungbin.apilibrary.data.Constants
+import land.sungbin.apilibrary.data.mapper.toDomain
+import land.sungbin.apilibrary.data.model.ApiLibraryResponse
 import land.sungbin.apilibrary.domain.datasource.ApiLibraryDatasource
-import land.sungbin.apilibrary.domain.model.ApiItem
 
 private val DefaultCIOClient = HttpClient(engineFactory = CIO) {
     expectSuccess = true
@@ -42,14 +44,16 @@ private val DefaultCIOClient = HttpClient(engineFactory = CIO) {
 class RemoteDatasource(
     private val client: HttpClient = DefaultCIOClient,
 ) : ApiLibraryDatasource {
-    override suspend fun fetchAllApis(): List<ApiItem> {
+    override suspend fun fetchAllApis(): List<DomainApiItem> {
         val request = client.get(urlString = Constants.ApiUrl)
-        return request.body()
+        val body: ApiLibraryResponse = request.body()
+        return body.entries.orEmpty().toDomain()
     }
 
-    override suspend fun saveAllApis(apis: List<ApiItem>) {
+    override suspend fun saveAllApis(apis: List<DomainApiItem>): Nothing {
         throw UnsupportedOperationException(
-            "RemoteDatasource does not support saveAllApis()",
+            "RemoteDatasource does not support saveAllApis(). " +
+                    "Please use LocalDatasource instead.",
         )
     }
 }
