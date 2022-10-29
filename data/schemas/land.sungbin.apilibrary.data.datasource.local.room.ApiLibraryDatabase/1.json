@@ -2,60 +2,66 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6f5e64de0d056854e50069fb0714121b",
+    "identityHash": "5e449c728f0fba0c4a3bd8ecdaeb3c4d",
     "entities": [
       {
         "tableName": "ApiItem",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`description` TEXT NOT NULL, `category` TEXT NOT NULL, `https` INTEGER NOT NULL, `auth` TEXT NOT NULL, `api` TEXT NOT NULL, `cors` TEXT NOT NULL, `link` TEXT NOT NULL, PRIMARY KEY(`api`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `description` TEXT, `category` TEXT, `https` INTEGER, `auth` TEXT, `api` TEXT, `cors` TEXT, `link` TEXT)",
         "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "description",
             "columnName": "description",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "category",
             "columnName": "category",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "https",
             "columnName": "https",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "auth",
             "columnName": "auth",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "api",
             "columnName": "api",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "cors",
             "columnName": "cors",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "link",
             "columnName": "link",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "api"
+            "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -64,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6f5e64de0d056854e50069fb0714121b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5e449c728f0fba0c4a3bd8ecdaeb3c4d')"
     ]
   }
 }
