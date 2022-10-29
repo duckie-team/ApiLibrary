@@ -13,8 +13,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 
+@NonRestartableComposable
 @Composable
 internal fun Badge(
     modifier: Modifier = Modifier,
