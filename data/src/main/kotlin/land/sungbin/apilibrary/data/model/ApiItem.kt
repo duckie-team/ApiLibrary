@@ -14,24 +14,24 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @Entity
 data class ApiItem(
     @field:JsonProperty("Description")
-    val description: String,
+    val description: String? = null,
 
     @field:JsonProperty("Category")
-    val category: String,
+    val category: String? = null,
 
     @field:JsonProperty("HTTPS")
-    val https: Boolean,
+    val https: Boolean? = null,
 
     @field:JsonProperty("Auth")
-    val auth: String,
+    val auth: String? = null,
 
     @PrimaryKey
     @field:JsonProperty("API")
-    val api: String,
+    val api: String? = null,
 
     @field:JsonProperty("Cors")
-    val cors: String,
+    val cors: String? = null,
 
     @field:JsonProperty("Link")
-    val link: String,
+    val link: String? = null,
 )
