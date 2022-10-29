@@ -22,7 +22,7 @@ import land.sungbin.apilibrary.domain.repository.ApiLibraryRepository
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ProvideRepository {
+internal object ProvideRepository {
     @Provides
     fun provideApiLibraryRepository(
         @ApplicationContext context: Context,

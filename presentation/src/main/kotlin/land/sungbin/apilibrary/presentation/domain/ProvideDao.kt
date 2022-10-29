@@ -18,7 +18,7 @@ import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDatabase
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ProvideDao {
+internal object ProvideDao {
     @Provides
     fun provideApiLibraryDao(
         @ApplicationContext context: Context,

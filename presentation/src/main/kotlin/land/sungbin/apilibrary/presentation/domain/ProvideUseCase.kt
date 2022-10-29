@@ -16,7 +16,7 @@ import land.sungbin.apilibrary.domain.usecase.ApiLibraryFetchUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ProvideUseCase {
+internal object ProvideUseCase {
     @Provides
     fun provideApiLibraryFetchUseCase(
         repository: ApiLibraryRepository,

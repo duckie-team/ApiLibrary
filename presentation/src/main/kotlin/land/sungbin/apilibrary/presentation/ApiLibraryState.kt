@@ -9,7 +9,7 @@ package land.sungbin.apilibrary.presentation
 
 import land.sungbin.apilibrary.domain.model.ApiItem
 
-sealed class ApiLibraryState {
+internal sealed class ApiLibraryState {
     object Initial : ApiLibraryState() {
         override fun toString() = "Initial"
     }

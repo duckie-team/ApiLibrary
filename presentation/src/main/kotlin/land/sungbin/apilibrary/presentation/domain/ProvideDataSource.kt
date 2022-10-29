@@ -19,7 +19,7 @@ import land.sungbin.apilibrary.domain.datasource.ApiLibraryDatasource
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ProvideDataSource {
+internal object ProvideDataSource {
     const val Remote = "remote"
     const val Local = "local"
 
