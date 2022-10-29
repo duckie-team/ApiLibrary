@@ -29,7 +29,7 @@ import land.sungbin.apilibrary.presentation.R
 import land.sungbin.apilibrary.presentation.theme.defaultTween
 import land.sungbin.apilibrary.presentation.util.ensureFillMaxSize
 
-internal val LottieSize = 300.dp
+internal val LottieSize = 200.dp
 
 @Immutable
 internal enum class LottieAsset(
