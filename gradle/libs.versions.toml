@@ -18,6 +18,7 @@ hilt = "2.44"
 coroutines = "1.6.4"
 ktor = "2.1.2"
 accompanist = "0.27.0"
+kotlin-immutable-collection = "0.3.5"
 
 # androidx
 androidx-appcompat = "1.5.1" # needs for oss license activity
@@ -43,6 +44,8 @@ build-kover = { module = "org.jetbrains.kotlinx:kover", version.ref = "kover" }
 build-oss-license = { module = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-license-plugin" }
 
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-core" }
+kotlin-immutable-collection = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlin-immutable-collection" }
+
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 ktor-client = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }

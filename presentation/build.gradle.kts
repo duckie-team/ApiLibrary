@@ -24,6 +24,7 @@ android {
 
 dependencies {
     implementations(
+        libs.kotlin.immutable.collection,
         libs.hilt.core,
         libs.androidx.browser,
         libs.util.systemui.controller,
