@@ -29,6 +29,7 @@ private const val CompileOnly = "compileOnly"
 private const val Implementation = "implementation"
 private const val DebugImplementation = "debugImplementation"
 private const val TestRuntimeOnly = "testRuntimeOnly"
+private const val AndroidTestRuntimeOnly = "androidTestRuntimeOnly"
 private const val TestImplementation = "testImplementation"
 private const val AndroidTestImplementation = "androidTestImplementation"
 
@@ -120,6 +121,14 @@ internal fun DependencyScope.setupJunit(
     )
     delegate(
         method = TestRuntimeOnly,
+        paths = arrayOf(engine),
+    )
+    delegate(
+        method = AndroidTestImplementation,
+        paths = arrayOf(core),
+    )
+    delegate(
+        method = AndroidTestRuntimeOnly,
         paths = arrayOf(engine),
     )
 }
