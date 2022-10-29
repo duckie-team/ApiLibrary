@@ -17,7 +17,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|locale|layoutDirection"
+            android:configChanges="colorMode|uiMode|orientation|screenSize|screenLayout|keyboardHidden|locale|layoutDirection"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,5 +26,12 @@
         </activity>
 
     </application>
+
+    <queries>
+        <intent>
+            <action android:name=
+                "android.support.customtabs.action.CustomTabsService" />
+        </intent>
+    </queries>
 
 </manifest>
