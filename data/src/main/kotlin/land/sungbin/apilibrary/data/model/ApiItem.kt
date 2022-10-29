@@ -13,6 +13,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 @Entity
 data class ApiItem(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+
     @field:JsonProperty("Description")
     val description: String? = null,
 
@@ -25,7 +28,6 @@ data class ApiItem(
     @field:JsonProperty("Auth")
     val auth: String? = null,
 
-    @PrimaryKey
     @field:JsonProperty("API")
     val api: String? = null,
 
