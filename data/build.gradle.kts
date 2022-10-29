@@ -5,7 +5,10 @@
  * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
  */
 
-@file:Suppress("DSL_SCOPE_VIOLATION")
+@file:Suppress(
+    "DSL_SCOPE_VIOLATION",
+    "UnstableApiUsage",
+)
 
 plugins {
     id(ConventionEnum.AndroidLibrary)
@@ -41,7 +44,6 @@ dependencies {
         projects.domain,
     )
     testImplementations(
-        libs.test.room,
         libs.test.ktor.client,
     )
     ksp(
