@@ -40,7 +40,7 @@ private val DefaultCIOClient = HttpClient(engineFactory = CIO) {
     }
 }
 
-internal class RemoteDatasource(
+class RemoteDatasource(
     private val client: HttpClient = DefaultCIOClient,
 ) : ApiLibraryDatasource {
     override suspend fun fetchAllApis(): List<ApiItem> {
