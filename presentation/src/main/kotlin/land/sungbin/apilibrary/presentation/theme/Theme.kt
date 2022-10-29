@@ -98,9 +98,9 @@ internal fun ApiLibraryTheme(
         )
         systemUiController.setNavigationBarColor(
             color = Color.Black.copy(
-                alpha = 0.8f,
+                alpha = 0.3f,
             ),
-            darkIcons = !useDarkTheme
+            darkIcons = useDarkTheme
         )
     }
 
