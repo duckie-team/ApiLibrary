@@ -14,7 +14,7 @@ import androidx.annotation.ColorInt
 import androidx.browser.customtabs.CustomTabsIntent
 
 
-object Browser {
+internal object Browser {
     private val customTabsIntent = CustomTabsIntent.Builder().build()
 
     fun open(
