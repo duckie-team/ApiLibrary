@@ -23,6 +23,7 @@ android {
 dependencies {
     implementations(
         libs.hilt.core,
+        projects.presentation,
     )
     kapt(
         libs.hilt.compiler,
