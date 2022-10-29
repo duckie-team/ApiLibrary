@@ -11,10 +11,27 @@
 )
 
 plugins {
-    id(ConventionEnum.AndroidApplication)
-    id(ConventionEnum.AndroidApplicationCompose)
+    id(ConventionEnum.AndroidLibrary)
+    id(ConventionEnum.AndroidLibraryCompose)
+    id(ConventionEnum.AndroidLibraryComposeUiTest)
+    id(libs.plugins.hilt.get().pluginId)
+    kotlin("kapt")
 }
 
 android {
-    namespace = "land.sungbin.apilibrary"
+    namespace = "land.sungbin.apilibrary.presentation"
+}
+
+dependencies {
+    implementations(
+        libs.hilt.core,
+        libs.androidx.browser,
+        libs.util.systemui.controller,
+        libs.androidx.room.core,
+        projects.data,
+        projects.domain,
+    )
+    kapt(
+        libs.hilt.compiler,
+    )
 }
