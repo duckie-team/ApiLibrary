@@ -7,6 +7,7 @@
 
 import land.sungbin.apilibrary.convention.libs
 import land.sungbin.apilibrary.convention.setupJunit
+import land.sungbin.apilibrary.convention.testImplementations
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
@@ -18,6 +19,9 @@ internal class JvmJUnit4Plugin : Plugin<Project> {
     override fun apply(project: Project) {
         with(project) {
             dependencies {
+                testImplementations(
+                    libs.findLibrary("test-junit-androidx").get(),
+                )
                 setupJunit(
                     core = libs.findLibrary("test-junit-core").get(),
                     engine = libs.findLibrary("test-junit-engine").get(),
