@@ -13,6 +13,8 @@ class ApiLibraryFetchUseCase(
     private val repository: ApiLibraryRepository,
 ) {
     suspend operator fun invoke() = runCatching {
-        repository.fetchAllApis()
+        repository.fetchAllApis().sortedBy { apiItem ->
+            apiItem.name
+        }
     }
 }
