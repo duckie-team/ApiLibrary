@@ -22,7 +22,7 @@ abstract class ApiLibraryDatabase : RoomDatabase() {
 
     companion object {
         private const val DatabaseName = "ApiLibraryDatabase.db"
-        private lateinit var database: RoomDatabase
+        private lateinit var database: ApiLibraryDatabase
 
         fun getDatabase(context: Context) = synchronized(
             lock = this,
