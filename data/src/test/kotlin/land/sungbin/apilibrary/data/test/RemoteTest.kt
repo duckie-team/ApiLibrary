@@ -5,42 +5,28 @@
  * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
  */
 
+@file:OptIn(ExperimentalCoroutinesApi::class)
+@file:Suppress("NonAsciiCharacters")
+
 package land.sungbin.apilibrary.data.test
 
-import android.content.Context
-import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import land.sungbin.apilibrary.data.datasource.local.LocalDatasource
-import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDao
-import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDatabase
-import land.sungbin.apilibrary.data.datasource.remote.RemoteDatasource
-import land.sungbin.apilibrary.data.repository.ApiLibraryRepository
-import org.junit.After
-import org.junit.Before
-import org.junit.runner.RunWith
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runTest
+import land.sungbin.apilibrary.data.datasource.remote.FakeResponse
+import land.sungbin.apilibrary.data.repository.ApiLibraryMockRepository
+import org.junit.Test
+import strikt.api.expectThat
+import strikt.assertions.isEqualTo
 
-@RunWith(AndroidJUnit4::class)
 class RemoteTest {
-    private lateinit var db: ApiLibraryDatabase
-    private lateinit var dao: ApiLibraryDao
-    private val localDatasource by lazy {
-        LocalDatasource(dao = dao)
-    }
-    private val remoteDatasource = RemoteDatasource()
-    private val repository = ApiLibraryRepository(
-        localDatasource = localDatasource,
-        remoteDatasource = remoteDatasource,
-    )
+    private val repository = ApiLibraryMockRepository()
 
-    @Before
-    fun createDb() {
-        val context = ApplicationProvider.getApplicationContext<Context>()
-        db = ApiLibraryDatabase.getDatabase(context)
-        dao = db.dao()
-    }
+    @Test
+    fun `조회된 ApiItem 가 정확히 일치함`() = runTest {
+        val response = repository.fetchAllApis()
 
-    @After
-    fun closeDb() {
-        db.close()
+        expectThat(response) {
+            isEqualTo(FakeResponse.ApiItems)
+        }
     }
 }

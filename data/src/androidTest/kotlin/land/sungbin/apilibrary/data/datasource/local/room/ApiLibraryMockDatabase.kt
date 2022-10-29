@@ -17,12 +17,12 @@ import androidx.room.RoomDatabase
     entities = [DataApiItem::class],
     version = 1,
 )
-abstract class ApiLibraryDatabase : RoomDatabase() {
+abstract class ApiLibraryMockDatabase : RoomDatabase() {
     abstract fun dao(): ApiLibraryDao
 
     companion object {
         fun getDatabase(context: Context) = Room.inMemoryDatabaseBuilder(
-            context, ApiLibraryDatabase::class.java,
+            context, ApiLibraryMockDatabase::class.java,
         ).build()
     }
 }
