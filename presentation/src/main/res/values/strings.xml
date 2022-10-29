@@ -7,4 +7,6 @@
 
 <resources>
     <string name="app_name">ApiLibrary</string>
+
+    <string name="composable_apilibrary_error">API 조회중 에러가 발생했어요.%s</string>
 </resources>
