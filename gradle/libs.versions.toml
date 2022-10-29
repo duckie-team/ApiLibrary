@@ -49,7 +49,6 @@ ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation",
 ktor-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-engine = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
-ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
@@ -76,3 +75,6 @@ test-compose-manifest = { module = "androidx.compose.ui:ui-test-manifest" } # de
 test-compose-junit = { module = "androidx.compose.ui:ui-test-junit4" } # androidTestImplementation
 test-room = { module = "androidx.room:room-testing", version.ref = "androidx-room" }
 test-ktor-client = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+
+[bundles]
+ktor = ["ktor-client", "ktor-content-negotiation", "ktor-jackson", "ktor-logging", "ktor-engine"]
