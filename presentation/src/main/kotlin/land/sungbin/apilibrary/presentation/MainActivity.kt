@@ -5,7 +5,7 @@
  * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
  */
 
-package land.sungbin.apilibrary
+package land.sungbin.apilibrary.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,8 +15,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var vm: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
