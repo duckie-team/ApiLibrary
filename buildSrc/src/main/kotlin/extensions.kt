@@ -10,6 +10,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler as DependencyScope
 private const val Api = "api"
 private const val Implementation = "implementation"
 private const val TestImplementation = "testImplementation"
+private const val AndroidTestImplementation = "androidTestImplementation"
 
 fun DependencyScope.implementations(
     vararg paths: Any,
@@ -25,6 +26,15 @@ fun DependencyScope.testImplementations(
 ) {
     delegate(
         method = TestImplementation,
+        paths = paths,
+    )
+}
+
+fun DependencyScope.androidTestImplementations(
+    vararg paths: Any,
+) {
+    delegate(
+        method = AndroidTestImplementation,
         paths = paths,
     )
 }
