@@ -5,6 +5,7 @@
  * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
  */
 
+import land.sungbin.apilibrary.convention.androidTestImplementations
 import land.sungbin.apilibrary.convention.libs
 import land.sungbin.apilibrary.convention.setupJunit
 import land.sungbin.apilibrary.convention.testImplementations
@@ -20,7 +21,12 @@ internal class JvmJUnit4Plugin : Plugin<Project> {
         with(project) {
             dependencies {
                 testImplementations(
-                    libs.findLibrary("test-junit-androidx").get(),
+                    libs.findLibrary("test-strikt").get(),
+                    libs.findLibrary("test-coroutines").get(),
+                )
+                androidTestImplementations(
+                    libs.findLibrary("test-strikt").get(),
+                    libs.findLibrary("test-coroutines").get(),
                 )
                 setupJunit(
                     core = libs.findLibrary("test-junit-core").get(),
