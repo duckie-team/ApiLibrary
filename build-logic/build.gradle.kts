@@ -26,15 +26,11 @@ dependencies {
 }
 
 gradlePlugin {
-    val prefix = "template"
+    val prefix = "apilibrary"
     plugins {
         register("androidApplicationPlugin") {
             id = "$prefix.android.application"
             implementationClass = "AndroidApplicationPlugin"
-        }
-        register("androidApplicationComposePlugin") {
-            id = "$prefix.android.application.compose"
-            implementationClass = "AndroidApplicationComposePlugin"
         }
         register("androidLibraryPlugin") {
             id = "$prefix.android.library"

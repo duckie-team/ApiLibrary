@@ -6,10 +6,10 @@
  */
 
 object ConventionEnum {
-    private const val prefix = "template"
+    private const val prefix = "apilibrary"
 
     const val AndroidApplication = "$prefix.android.application"
-    const val AndroidApplicationCompose = "$prefix.android.application.compose"
+
     const val AndroidLibrary = "$prefix.android.library"
     const val AndroidLibraryCompose = "$prefix.android.library.compose"
     const val AndroidLibraryComposeUiTest = "$prefix.android.library.compose.uitest"
