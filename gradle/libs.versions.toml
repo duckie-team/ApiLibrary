@@ -69,16 +69,15 @@ util-systemui-controller = { module = "com.google.accompanist:accompanist-system
 
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splash" }
-androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit" }
 androidx-room-core = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
 androidx-browser = { module = "androidx.browser:browser", version.ref = "androidx-browser" }
 
 test-junit-core = { module = "junit:junit", version.ref = "junit" }
 test-junit-engine = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "junit-engine" } # testRuntimeOnly
+test-junit-androidx = { module = "androidx.test.ext:junit-ktx", version.ref = "androidx-junit" }
 test-compose-manifest = { module = "androidx.compose.ui:ui-test-manifest" } # debugImplementation
 test-compose-junit = { module = "androidx.compose.ui:ui-test-junit4" } # androidTestImplementation
-test-room = { module = "androidx.room:room-testing", version.ref = "androidx-room" }
 test-ktor-client = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 
 [bundles]
