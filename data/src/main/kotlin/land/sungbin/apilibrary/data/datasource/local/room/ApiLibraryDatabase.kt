@@ -32,7 +32,7 @@ abstract class ApiLibraryDatabase : RoomDatabase() {
                     .databaseBuilder(
                         context,
                         ApiLibraryDatabase::class.java,
-                        DatabaseName
+                        DatabaseName,
                     )
                     .fallbackToDestructiveMigration()
                     .build()
