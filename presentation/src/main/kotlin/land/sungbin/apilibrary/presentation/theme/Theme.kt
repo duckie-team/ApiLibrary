@@ -83,12 +83,20 @@ private val DarkColors = darkColorScheme(
 @Composable
 internal fun ApiLibraryTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val systemUiController = rememberSystemUiController()
-    val colors = when (useDarkTheme) {
+    val colorScheme = when (useDarkTheme) {
         true -> DarkColors
         else -> LightColors
+    }
+    val navigationBarColor = when (useDarkTheme) {
+        true -> Color.White.copy(
+            alpha = 0.3f,
+        )
+        else -> Color.Black.copy(
+            alpha = 0.3f,
+        )
     }
 
     LaunchedEffect(key1 = Unit) {
@@ -97,15 +105,13 @@ internal fun ApiLibraryTheme(
             darkIcons = !useDarkTheme
         )
         systemUiController.setNavigationBarColor(
-            color = Color.Black.copy(
-                alpha = 0.3f,
-            ),
+            color = navigationBarColor,
             darkIcons = useDarkTheme
         )
     }
 
     MaterialTheme(
-        colorScheme = colors,
+        colorScheme = colorScheme,
         content = content
     )
 }
