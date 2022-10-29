@@ -10,6 +10,7 @@
 package land.sungbin.apilibrary.presentation.ui.uistate
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,13 +23,20 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import kotlinx.collections.immutable.ImmutableList
 import land.sungbin.apilibrary.domain.model.ApiItem
 import land.sungbin.apilibrary.presentation.theme.defaultTween
+import land.sungbin.apilibrary.presentation.ui.Badge
 import land.sungbin.apilibrary.presentation.ui.LottieAsset
+import land.sungbin.apilibrary.presentation.ui.MarqueeText
 import land.sungbin.apilibrary.presentation.ui.ResultLottieScreen
+import land.sungbin.apilibrary.presentation.util.Browser
 
 @Suppress("FunctionName")
 internal fun LazyListScope.ApiLibraryLoadedState(
@@ -45,9 +53,11 @@ internal fun LazyListScope.ApiLibraryLoadedState(
                 items = apiItems,
                 contentType = { ApiItem },
                 key = { apiItem ->
-                    apiItem.name
+                    apiItem.hashCode()
                 }
             ) { apiItem ->
+                val context = LocalContext.current
+
                 ApiItemCard(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -55,9 +65,12 @@ internal fun LazyListScope.ApiLibraryLoadedState(
                         .animateItemPlacement(
                             animationSpec = defaultTween(),
                         )
-                        .padding(
-                            all = 12.dp,
-                        ),
+                        .clickable {
+                            Browser.open(
+                                context = context,
+                                url = apiItem.link.toUri(),
+                            )
+                        },
                     apiItem = apiItem,
                 )
             }
@@ -78,7 +91,10 @@ private fun ApiItemCard(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .wrapContentHeight(),
+                .wrapContentHeight()
+                .padding(
+                    all = 10.dp,
+                ),
             verticalArrangement = Arrangement.spacedBy(
                 space = 10.dp,
             ),
@@ -86,15 +102,24 @@ private fun ApiItemCard(
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
+                MarqueeText(
+                    modifier = Modifier.weight(
+                        weight = 2f,
+                    ),
                     text = apiItem.name,
                     style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Start,
                 )
                 apiItem.category?.let { category ->
-                    Text(
+                    MarqueeText(
+                        modifier = Modifier.weight(
+                            weight = 1f,
+                        ),
                         text = category,
                         style = MaterialTheme.typography.titleSmall,
+                        textAlign = TextAlign.End,
                     )
                 }
             }
@@ -105,7 +130,9 @@ private fun ApiItemCard(
                 )
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight(),
                 horizontalArrangement = Arrangement.spacedBy(
                     space = 8.dp,
                 ),
@@ -114,15 +141,15 @@ private fun ApiItemCard(
                     val neededAuth = _neededAuth.replaceFirstChar { first ->
                         first.titlecase()
                     }
-                    Text(
+                    Badge(
                         text = neededAuth,
-                        style = MaterialTheme.typography.labelMedium,
+                        onClick = {},
                     )
                 }
                 if (apiItem.supportCORS) {
-                    Text(
+                    Badge(
                         text = CorsBadgeString,
-                        style = MaterialTheme.typography.labelMedium,
+                        onClick = {},
                     )
                 }
             }
