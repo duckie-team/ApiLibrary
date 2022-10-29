@@ -22,7 +22,7 @@ import land.sungbin.apilibrary.data.Constants
 import land.sungbin.apilibrary.data.mapper.toDomain
 import land.sungbin.apilibrary.data.model.ApiLibraryResponse
 import land.sungbin.apilibrary.domain.datasource.ApiLibraryDatasource
-import land.sungbin.apilibrary.domain.model.ApiItem
+import land.sungbin.apilibrary.domain.model.ApiItem as DomainApiItem
 
 private val DefaultCIOClient = HttpClient(engineFactory = CIO) {
     expectSuccess = true
@@ -44,13 +44,13 @@ private val DefaultCIOClient = HttpClient(engineFactory = CIO) {
 class RemoteDatasource(
     private val client: HttpClient = DefaultCIOClient,
 ) : ApiLibraryDatasource {
-    override suspend fun fetchAllApis(): List<ApiItem> {
+    override suspend fun fetchAllApis(): List<DomainApiItem> {
         val request = client.get(urlString = Constants.ApiUrl)
         val body: ApiLibraryResponse = request.body()
         return body.entries.orEmpty().toDomain()
     }
 
-    override suspend fun saveAllApis(apis: List<ApiItem>): Nothing {
+    override suspend fun saveAllApis(apis: List<DomainApiItem>): Nothing {
         throw UnsupportedOperationException(
             "RemoteDatasource does not support saveAllApis(). " +
                     "Please use LocalDatasource instead.",
