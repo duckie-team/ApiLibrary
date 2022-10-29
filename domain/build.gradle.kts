@@ -1,6 +1,5 @@
 plugins {
     id(ConventionEnum.AndroidLibrary)
-    id(ConventionEnum.JvmJUnit4)
 }
 
 android {
