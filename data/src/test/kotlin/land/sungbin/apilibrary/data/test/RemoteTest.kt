@@ -26,7 +26,7 @@ class RemoteTest {
         val response = repository.fetchAllApis()
 
         expectThat(response) {
-            isEqualTo(FakeResponse.ApiItems)
+            isEqualTo(FakeResponse.DomainApiItems)
         }
     }
 }

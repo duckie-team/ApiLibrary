@@ -17,7 +17,7 @@ import io.ktor.utils.io.ByteReadChannel
 @Suppress("TestFunctionName")
 fun MockEngine(status: HttpStatusCode) = MockEngine {
     respond(
-        content = ByteReadChannel(FakeResponse.ApiEntries),
+        content = FakeResponse.ApiEntriesJson,
         status = status,
         headers = headersOf(HttpHeaders.ContentType, "application/json")
     )

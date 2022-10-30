@@ -7,13 +7,14 @@
 
 package land.sungbin.apilibrary.data.repository
 
-import land.sungbin.apilibrary.data.datasource.remote.RemoteMockDatasource
 import land.sungbin.apilibrary.domain.model.ApiItem as DomainApiItem
+import land.sungbin.apilibrary.data.datasource.remote.RemoteMockDatasource
+import land.sungbin.apilibrary.domain.repository.ApiLibraryRepository
 
-class ApiLibraryMockRepository {
+class ApiLibraryMockRepository : ApiLibraryRepository {
     private val remoteDatasource = RemoteMockDatasource()
 
-    suspend fun fetchAllApis(): List<DomainApiItem> {
+    override suspend fun fetchAllApis(): List<DomainApiItem> {
         return remoteDatasource.fetchAllApis()
     }
 }

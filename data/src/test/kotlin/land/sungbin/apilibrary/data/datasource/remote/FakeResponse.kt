@@ -7,12 +7,10 @@
 
 package land.sungbin.apilibrary.data.datasource.remote
 
-import land.sungbin.apilibrary.data.mapper.toDomain
-import land.sungbin.apilibrary.data.model.ApiLibraryResponse
-import land.sungbin.apilibrary.data.datasource.mapper
+import land.sungbin.apilibrary.domain.model.ApiItem
 
 object FakeResponse {
-    val ApiEntries = """
+    val ApiEntriesJson = """
         {
           "count": 5,
           "entries": [
@@ -64,8 +62,95 @@ object FakeResponse {
           ]
         }
     """.trimIndent()
-    val ApiItems = mapper.readValue(
-        ApiEntries,
-        ApiLibraryResponse::class.java
-    ).entries.orEmpty().toDomain()
+
+    val DomainApiItems = listOf(
+        ApiItem(
+            name = "Axolotl",
+            description = "Collection of axolotl pictures and facts",
+            category = "Animals",
+            link = "https://theaxolotlapi.netlify.app/",
+            neededAuth = null,
+            supportCORS = false,
+        ),
+        ApiItem(
+            name = "Cat Facts",
+            description = "Daily cat facts",
+            category = "Animals",
+            link = "https://alexwohlbruck.github.io/cat-facts/",
+            neededAuth = null,
+            supportCORS = false,
+        ),
+        ApiItem(
+            name = "Cataas",
+            description = "Cat as a service (cats pictures and gifs)",
+            category = "Animals",
+            link = "https://cataas.com/",
+            neededAuth = null,
+            supportCORS = false,
+        ),
+        ApiItem(
+            name = "Cats",
+            description = "Pictures of cats from Tumblr",
+            category = "Animals",
+            link = "https://docs.thecatapi.com/",
+            neededAuth = "apiKey",
+            supportCORS = true,
+        ),
+        ApiItem(
+            name = "Dog Facts",
+            description = "Random dog facts",
+            category = "Animals",
+            link = "https://dukengn.github.io/Dog-facts-API/",
+            neededAuth = null,
+            supportCORS = true,
+        ),
+    )
+
+    val DataApiItems = listOf(
+        land.sungbin.apilibrary.data.model.ApiItem(
+            api = "Axolotl",
+            description = "Collection of axolotl pictures and facts",
+            auth = "",
+            https = true,
+            cors = "no",
+            link = "https://theaxolotlapi.netlify.app/",
+            category = "Animals",
+        ),
+        land.sungbin.apilibrary.data.model.ApiItem(
+            api = "Cat Facts",
+            description = "Daily cat facts",
+            auth = "",
+            https = true,
+            cors = "no",
+            link = "https://alexwohlbruck.github.io/cat-facts/",
+            category = "Animals",
+        ),
+        land.sungbin.apilibrary.data.model.ApiItem(
+            api = "Cataas",
+            description = "Cat as a service (cats pictures and gifs)",
+            auth = "",
+            https = true,
+            cors = "no",
+            link = "https://cataas.com/",
+            category = "Animals",
+        ),
+        land.sungbin.apilibrary.data.model.ApiItem(
+            api = "Cats",
+            description = "Pictures of cats from Tumblr",
+            auth = "apiKey",
+            https = true,
+            cors = "yes",
+            link = "https://docs.thecatapi.com/",
+            category = "Animals",
+        ),
+        land.sungbin.apilibrary.data.model.ApiItem(
+            api = "Dog Facts",
+            description = "Random dog facts",
+            auth = "",
+            https = true,
+            cors = "yes",
+            link = "https://dukengn.github.io/Dog-facts-API/",
+            category = "Animals",
+        ),
+    )
 }

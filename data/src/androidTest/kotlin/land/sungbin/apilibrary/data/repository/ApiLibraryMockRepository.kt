@@ -18,14 +18,16 @@ import land.sungbin.apilibrary.data.datasource.local.LocalMockDatasource
 import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDao
 import land.sungbin.apilibrary.data.datasource.remote.RemoteMockDatasource
 import land.sungbin.apilibrary.domain.model.ApiItem
+import land.sungbin.apilibrary.domain.repository.ApiLibraryRepository
 
-class ApiLibraryMockRepository(dao: ApiLibraryDao) {
+class ApiLibraryMockRepository(
+    dao: ApiLibraryDao,
+    private val isOfflineMode: Boolean,
+) : ApiLibraryRepository {
     private val localDatasource = LocalMockDatasource(dao = dao)
     private val remoteDatasource = RemoteMockDatasource()
 
-    suspend fun fetchAllApis(
-        isOfflineMode: Boolean,
-    ): List<ApiItem> {
+    override suspend fun fetchAllApis(): List<ApiItem> {
         return if (isOfflineMode) {
             localDatasource.fetchAllApis()
         } else {

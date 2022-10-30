@@ -5,13 +5,6 @@
  * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
  */
 
-/*
- * Designed and developed by 2022 Ji Sungbin.
- *
- * Licensed under the MIT.
- * Please see full license: https://github.com/duckie-team/ApiLibrary/blob/trunk/LICENSE
- */
-
 @file:OptIn(ExperimentalCoroutinesApi::class)
 
 package land.sungbin.apilibrary.data.test
@@ -40,8 +33,17 @@ class LocalTest {
     private val localDatasource by lazy {
         LocalMockDatasource(dao = dao)
     }
-    private val repository by lazy {
-        ApiLibraryMockRepository(dao = dao)
+    private val offlineRepository by lazy {
+        ApiLibraryMockRepository(
+            dao = dao,
+            isOfflineMode = true,
+        )
+    }
+    private val onlineRepository by lazy {
+        ApiLibraryMockRepository(
+            dao = dao,
+            isOfflineMode = false,
+        )
     }
 
     @Before
@@ -54,11 +56,10 @@ class LocalTest {
 
     @Test
     fun save_five_apis() = runTest {
-        val apis = FakeResponse.ApiItems
-        localDatasource.saveAllApis(apis = apis)
+        localDatasource.saveAllApis(apis = FakeResponse.DomainApiItems)
 
         expectThat(localDatasource.fetchAllApis()) {
-            isEqualTo(apis)
+            isEqualTo(FakeResponse.DomainApiItems)
         }
     }
 
@@ -66,11 +67,10 @@ class LocalTest {
     fun remote_fetch_and_save_local() = runTest {
         db.clearAllTables()
 
-        val apis = FakeResponse.ApiItems
-        repository.fetchAllApis(isOfflineMode = false)
+        onlineRepository.fetchAllApis()
 
         expectThat(localDatasource.fetchAllApis()) {
-            isEqualTo(apis)
+            isEqualTo(FakeResponse.DomainApiItems)
         }
     }
 
@@ -78,8 +78,8 @@ class LocalTest {
     fun online_fetch_and_offline_fetch_result_is_same() = runTest {
         db.clearAllTables()
 
-        val fetchResponse = repository.fetchAllApis(isOfflineMode = false)
-        val localResponse = repository.fetchAllApis(isOfflineMode = true)
+        val fetchResponse = onlineRepository.fetchAllApis()
+        val localResponse = offlineRepository.fetchAllApis()
 
         expectThat(fetchResponse) {
             isEqualTo(localResponse)
