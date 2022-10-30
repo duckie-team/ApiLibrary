@@ -30,9 +30,7 @@ internal object ProvideRepository {
         @Named(ProvideDataSource.Remote) remoteDatasource: ApiLibraryDatasource,
     ): ApiLibraryRepository {
         return ApiLibraryRepositoryImpl(
-            calcIsOfflineMode = {
-                !isNetworkAvailable(context = context)
-            },
+            isOfflineMode = !isNetworkAvailable(context = context),
             localDatasource = localDatasource,
             remoteDatasource = remoteDatasource,
         )

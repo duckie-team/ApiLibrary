@@ -18,7 +18,8 @@ import land.sungbin.apilibrary.data.datasource.local.LocalMockDatasource
 import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryDao
 import land.sungbin.apilibrary.data.datasource.local.room.ApiLibraryMockDatabase
 import land.sungbin.apilibrary.data.datasource.remote.FakeResponse
-import land.sungbin.apilibrary.data.repository.ApiLibraryMockRepository
+import land.sungbin.apilibrary.data.datasource.remote.RemoteMockDatasource
+import land.sungbin.apilibrary.data.repository.ApiLibraryRepositoryImpl
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -34,15 +35,17 @@ class LocalTest {
         LocalMockDatasource(dao = dao)
     }
     private val offlineRepository by lazy {
-        ApiLibraryMockRepository(
-            dao = dao,
+        ApiLibraryRepositoryImpl(
             isOfflineMode = true,
+            localDatasource = localDatasource,
+            remoteDatasource = RemoteMockDatasource(),
         )
     }
     private val onlineRepository by lazy {
-        ApiLibraryMockRepository(
-            dao = dao,
+        ApiLibraryRepositoryImpl(
             isOfflineMode = false,
+            localDatasource = localDatasource,
+            remoteDatasource = RemoteMockDatasource(),
         )
     }
 
@@ -56,6 +59,8 @@ class LocalTest {
 
     @Test
     fun save_five_apis() = runTest {
+        db.clearAllTables()
+
         localDatasource.saveAllApis(apis = FakeResponse.DomainApiItems)
 
         expectThat(localDatasource.fetchAllApis()) {

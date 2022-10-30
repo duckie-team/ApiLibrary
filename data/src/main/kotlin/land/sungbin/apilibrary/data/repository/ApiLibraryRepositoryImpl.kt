@@ -12,12 +12,12 @@ import land.sungbin.apilibrary.domain.model.ApiItem
 import land.sungbin.apilibrary.domain.repository.ApiLibraryRepository
 
 class ApiLibraryRepositoryImpl(
-    private val calcIsOfflineMode: () -> Boolean,
+    private val isOfflineMode: Boolean,
     private val localDatasource: ApiLibraryDatasource,
     private val remoteDatasource: ApiLibraryDatasource,
 ) : ApiLibraryRepository {
     override suspend fun fetchAllApis(): List<ApiItem> {
-        return if (calcIsOfflineMode()) {
+        return if (isOfflineMode) {
             localDatasource.fetchAllApis()
         } else {
             remoteDatasource.fetchAllApis().also { apis ->
