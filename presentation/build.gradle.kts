@@ -14,6 +14,7 @@ plugins {
     id(ConventionEnum.AndroidLibrary)
     id(ConventionEnum.AndroidLibraryCompose)
     id(ConventionEnum.AndroidLibraryComposeUiTest)
+    id(ConventionEnum.JvmJUnit4)
     id(libs.plugins.hilt.get().pluginId)
     kotlin("kapt")
 }
@@ -34,6 +35,10 @@ dependencies {
         libs.bundles.ktor,
         projects.data,
         projects.domain,
+    )
+    testImplementations(
+        libs.test.ktor.client,
+        libs.test.turbine,
     )
     kapt(
         libs.hilt.compiler,
