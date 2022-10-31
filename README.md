@@ -34,7 +34,11 @@
 
 ### Architecture
 
-[duckie-app/architecture.md](https://github.com/duckie-team/duckie-app/blob/develop/documents/architecture.md#apilibrary) 에서 확인하실 수 있습니다.
+- [Duckie Architecture](https://github.com/duckie-team/duckie-app-mvp/blob/develop/documents/architecture.md)
+   - [Microsoft MVVM](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm)
+   - [Unidirectional Data Flow](https://en.wikipedia.org/wiki/Unidirectional_Data_Flow_(computer_science))
+
+자세한 설명은 [duckie-app/architecture.md](https://github.com/duckie-team/duckie-app/blob/develop/documents/architecture.md#apilibrary) 에서 확인하실 수 있습니다.
 
 ### License
 
