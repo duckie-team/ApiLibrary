@@ -48,7 +48,7 @@ jobs:
           title: Test Coverage
 
       - name: Generate test coverage badge
-        uses: emibcn/badge-action@v1.2.4
+        uses: emibcn/badge-action@v2.0.2
         with:
           label: Test Coverage
           status: ${{ steps.kover.outputs.coverage-overall }}%
