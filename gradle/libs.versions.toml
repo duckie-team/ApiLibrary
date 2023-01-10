@@ -6,7 +6,7 @@ oss-license-plugin = "0.10.5"
 ksp = "1.7.20-1.0.7"
 
 # compose
-compose-bom = "2022.10.00"
+compose-bom = "2022.12.00"
 compose-activity = "1.6.1"
 compose-compiler = "1.3.2"
 compose-lottie = "5.2.0"
