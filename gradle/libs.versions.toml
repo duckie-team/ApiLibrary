@@ -2,7 +2,7 @@
 # build
 gradle-agp = "7.3.1"
 kotlin-core = "1.7.20"
-oss-license-plugin = "0.10.5"
+oss-license-plugin = "0.10.6"
 ksp = "1.7.20-1.0.7"
 
 # compose
