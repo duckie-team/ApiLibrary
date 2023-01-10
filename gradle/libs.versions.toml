@@ -3,7 +3,7 @@
 gradle-agp = "7.3.1"
 kotlin-core = "1.7.20"
 oss-license-plugin = "0.10.5"
-ksp = "1.7.20-1.0.7"
+ksp = "1.8.0-1.0.8"
 
 # compose
 compose-bom = "2022.10.00"
